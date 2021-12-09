@@ -37,5 +37,4 @@ class ContactViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         title.text = item.name
         subtitle.text = item.type.description
     }
-
 }
