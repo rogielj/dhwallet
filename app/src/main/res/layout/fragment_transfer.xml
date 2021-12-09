@@ -1,90 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".TransferFragment"
-    android:background="@color/concrete">
+    android:background="@color/concrete"
+    app:layoutDescription="@xml/fragment_transfer_scene"
+    tools:context=".TransferFragment">
 
     <View
         android:id="@+id/background_header"
-        android:background="@drawable/background_card_top"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="@+id/guide_line"/>
+        android:background="@drawable/background_card_top"
+        app:layout_constraintBottom_toBottomOf="@+id/guide_line"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:title="@string/string_title_transfer"
-        app:titleTextColor="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/ic_arrow_backward"
-        app:layout_constraintTop_toTopOf="parent">
+        app:titleTextColor="@color/white">
 
         <ImageView
 
-            android:layout_gravity="end"
-            android:layout_marginEnd="16dp"
             android:layout_width="28dp"
             android:layout_height="28dp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="16dp"
             android:scaleType="centerCrop"
             android:src="@drawable/foto" />
 
     </androidx.appcompat.widget.Toolbar>
 
+    <TextView
+        android:id="@+id/Title_toolbar"
+        style="@style/Headline6"
+        android:textColor="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/string_title_transfer"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        app:layout_constraintStart_toEndOf="@id/guide_line"
+        app:layout_constraintEnd_toStartOf="@+id/end"
+        app:layout_constraintTop_toTopOf="parent"/>
+
     <androidx.appcompat.widget.SearchView
         android:id="@+id/search"
         style="@style/Widget.DHWallet.SearchView"
-        app:defaultQueryHint="@string/search_hint"
-        app:layout_constraintStart_toStartOf="@+id/start"
-        app:layout_constraintEnd_toEndOf="@id/end"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        app:defaultQueryHint="@string/search_hint"
         app:layout_constraintBottom_toBottomOf="@+id/guide_line"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"/>
+        app:layout_constraintEnd_toEndOf="@id/end"
+        app:layout_constraintStart_toStartOf="@+id/start"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guide_line"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="223dp"/>
+        app:layout_constraintGuide_begin="223dp" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/start"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="16dp"/>
+        app:layout_constraintGuide_begin="16dp" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/end"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
-        app:layout_constraintGuide_end="16dp"/>
+        app:layout_constraintGuide_end="16dp" />
+
     <TextView
-        style="@style/Subtitle"
-        android:textStyle="bold"
         android:id="@+id/title_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"
+        style="@style/Subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
         android:text="Contatos"
-        app:layout_constraintTop_toBottomOf="@+id/guide_line"
-        app:layout_constraintStart_toStartOf="@+id/start"/>
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/start"
+        app:layout_constraintTop_toBottomOf="@+id/guide_line" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler1"
-        android:layout_marginTop="16dp"
-        tools:itemCount="20"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_contact"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_content"/>
+        app:layout_constraintTop_toBottomOf="@+id/title_content"
+        tools:itemCount="20"
+        tools:listitem="@layout/item_contact" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.motion.widget.MotionLayout>
